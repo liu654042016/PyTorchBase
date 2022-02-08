@@ -14,7 +14,7 @@ x = torch.tensor([5, 5, 3])
 #转为1矩阵
 x = x.new_ones((5, 3))
 #生成形状相同， 均值为0，方差为1的标准正态分布数据
-x = torch.randint_like(x, dtype=torch.float)
+x = torch.rand_like(x, dtype=torch.float)
 print(x)
 #查看维度
 print(x.size())
