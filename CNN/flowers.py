@@ -39,10 +39,11 @@ def initialize_model(model_name, num_class, feature_etract, use_pretrained=True)
         resnet152
         """
         #pretrained表示是否需要下载
-        model_ft = models.Resnet152(pretrained = use_pretrained)
+        model_ft = models.resnet152(pretrained = use_pretrained)
+        print(model_ft)
         set_parameter_requires_grad(model_ft, feature_etract)
         num_ftrs = model_ft.fc.in_features
-        model_fit.fc = nn.Sequential(nn.Linear(num_ftrs,    num_class),
+        model_ft.fc = nn.Sequential(nn.Linear(num_ftrs,  num_class),
                                     nn.LogSoftmax(dim=1))
         input_size = 224
     
@@ -185,12 +186,12 @@ def flower_start():
             params_need_updata.append(param)
             print(para_name)
 
-    data_dir = ''
-    train_dir = data_dir + '/train'
-    valid_dir = data_dir + './valid'
+    data_dir = 'D:\study\PyTorch\PyTorchBase\CNN\\flower_data\\'
+  #  train_dir = data_dir + '\train'
+  #  valid_dir = data_dir + '\valid'
 
     #读取对应的花名
-    with open("cat_to_name.json") as f:
+    with open("D:\study\PyTorch\PyTorchBase\CNN\cat_to_name.json") as f:
         cat_to_name = json.load(f)
 
     data_transforms = {
@@ -198,10 +199,10 @@ def flower_start():
                                       transforms.CenterCrop(224), #从中心开始裁剪，只得一张图片
                                       transforms.RandomHorizontalFlip(p=0.5), #随机水平翻转，概率为0.5
                                       transforms.RandomVerticalFlip(p=0.5),#随机垂直翻转
-                                      transforms.ColorJitter(brightness=0.2, constrast=0.1, saturation=0.1, hue=0.1),
+                                      transforms.ColorJitter(brightness=0.2, contrast=0.1, saturation=0.1, hue=0.1),
                                       #参数1为亮度， 参数2为对比度， 参数3为饱和度， 参数4为色相
                                       transforms.RandomGrayscale(p=0.025),#概率转换成灰度率， 3通道R=G=B
-                                      transforms.Tensor(),
+                                      transforms.ToTensor(),
                                       #迁移学习，用别人的均值和标准差
                                       transforms.Normalize([0.485, 0.456, 0.406],[0.229, 0.224, 0.225])#jun
                                     ]),
