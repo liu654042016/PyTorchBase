@@ -34,3 +34,14 @@ b[0][0] = 100
 print(a)
 #查看gpu版是否安装
 print(torch.cuda.is_available())
+#扩展维度
+#返回一个新的张量， 对输入既定位置插入位置为1
+#torch.unsqueeeze
+x = torch.Tensor([1,2,3,4])
+print(x)
+print(x.size())
+print(x.dim())
+print(x.numpy())
+
+
+
