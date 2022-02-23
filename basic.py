@@ -1,6 +1,8 @@
 import torch
 import numpy as np
 
+
+#test
 #创建一个未初始化矩阵
 empty = torch.empty(5,3)
 #创建一个空矩阵
