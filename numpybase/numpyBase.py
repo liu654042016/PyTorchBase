@@ -2,7 +2,7 @@
 Author: LIU KANG
 Date: 2022-03-14 15:22:44
 LastEditors: LIU KANG
-LastEditTime: 2022-03-15 15:02:21
+LastEditTime: 2022-03-25 18:10:29
 FilePath: \PyTorchBase\numpybase\numpyBase.py
 Description: 
 
@@ -28,8 +28,18 @@ a = a.reshape(3, 3)
 # print(a[:, 2])
 
 b = np.arange(0,9)
-print(b)
+#print(b)
 b = np.power(np.array(b),2)
-print(b)
+#print(b)
 b = np.square(b)
-print(b)
+#print(b)
+a = np.arange(4, 8).reshape(2,2)
+#print(a)
+temp = np.random.randint(-5, 5, (2,2))
+#print(temp)
+a[0] = a[0] - temp[0]
+a[1] = a[1] - temp[1]
+#print(a)
+#print(np.random.randint(1, 3, 4))
+print(np.array([1,2])-temp[0])
+
