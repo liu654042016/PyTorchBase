@@ -2,7 +2,7 @@
  * @Author: LIU KANG
  * @Date: 2022-03-13 23:47:19
  * @LastEditors: LIU KANG
- * @LastEditTime: 2022-03-25 17:34:15
+ * @LastEditTime: 2022-03-30 20:45:31
  * @FilePath: \PyTorchBase\numpybase\readme.md
  * @Description: 
  * 
@@ -30,4 +30,27 @@ x_norm=np.linalg.norm(x, ord=None, axis=None, keepdims=False)
 temp3=np.random.randint(10,size=8)
 temp4=np.random.randint(10,size=(2,4))
 temp5=np.random.randint(5,10,size=(2,4))
+temp6 = np.random.rand(1,5)
+#rand函数根据给定维度生成[0,1)之间的数据，包含0，不包含1
+#dn表格每个维度
+#返回值为指定维度的array
+```
+###python 可变参数
+参考网站:https://n3xtchen.github.io/n3xtchen/python/2014/08/08/python-args-and-kwargs
+*args
+```
+def argsFunc(a, *args):
+	print a
+	print args
+>>> argsFunc(1, 2, 3, 4)
+1
+(2, 3, 4)
+```
+argsFunc 中匹配完定义好的参数，剩余的参数以元组的形式存储在 args（args 名称你可以自行定义），因此在上述程序中只要你传入不小于 1 个参数，该函数都会接受，当然你也可以直接定义只接受可变参数，你就可以自由传递你的参数.
+**kwargs
+形参名前加两个*表示，参数在函数内部将被存放在以形式名为标识符的 dictionary 中，这时调用函数的方法则需要采用 arg1=value1,arg2=value2 这样的形式。为了区分，我把 *args 称作为数组参数，**kwargs 称作为字典参数
+```
+>>> def a(**x):print x
+>>> a(x=1,y=2,z=3)
+{'y': 2, 'x': 1, 'z': 3} #存放在字典中
 ```
