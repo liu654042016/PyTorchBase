@@ -2,7 +2,7 @@
  * @Author: LIU KANG
  * @Date: 2022-03-13 23:47:19
  * @LastEditors: LIU KANG
- * @LastEditTime: 2022-03-30 20:45:46
+ * @LastEditTime: 2022-04-09 15:15:10
  * @FilePath: \PyTorchBase\numpybase\readme.md
  * @Description: 
  * 
@@ -54,3 +54,5 @@ argsFunc 中匹配完定义好的参数，剩余的参数以元组的形式存�
 >>> a(x=1,y=2,z=3)
 {'y': 2, 'x': 1, 'z': 3} #存放在字典中
 ```
+###np.mat和np.array的区别
+https://blog.nex3z.com/2017/07/23/numpy-%E4%B8%AD-ndarray-%E5%92%8C-matrix-%E7%9A%84%E5%8C%BA%E5%88%AB/
