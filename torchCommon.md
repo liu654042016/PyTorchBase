@@ -2,7 +2,7 @@
  * @Author: LIU KANG
  * @Date: 2022-04-16 23:16:22
  * @LastEditors: LIU KANG
- * @LastEditTime: 2022-04-18 20:56:06
+ * @LastEditTime: 2022-04-19 10:51:01
  * @FilePath: \PyTorchBase\torchCommon.md
  * @Description: liukang
  * 
@@ -34,4 +34,34 @@ torch.backends.cudnn.benchmark = True
 `device = torch.device('cuda' if torch.cuda_isavaliable() else 'cpu')`
 如果指定多张显卡，比如0，1号显卡
 `os.environ=['CUDA_VISIBLE_DEVICES']=0,1`
-在命令行dai
+在命令行代码设置显卡
+`CUDA_VISIBLE_DEVICES=0, 1 python train.py`
+清除显存
+`torch.cuda.empty_cache()`
+也可以在命令行重置gpu的命令
+`nvidia-smi --gpu-reset -i [gpu_id]`
+##张量处理
+1.张量基本信息
+```
+tensor = torch.randn(3, 4, 5)
+print(tensor.type())
+print(tensor.size())
+print(tensor.dim())
+```
+2.数据类型转换
+```
+#设置默认类型，pytorch中的floattensor远远快于doubletensor
+torch.set_default_tensor_type(torch.FloatTensor)
+
+#类型转换
+tensor = tensor.cuda()
+tensor = tensor.cpu()
+tensor = tensor.float()
+tensor = tensor.long()
+```
+3.torch.Tensor与np.ndarry转换
+```
+ndarray = tensor.cpu().numpy()
+tensor = torch.from_numpy(ndarry).float()
+tensor = torch.from_numpy(ndarry.copy()).float()
+```
