@@ -2,13 +2,14 @@
  * @Author: LIU KANG
  * @Date: 2022-04-16 23:16:22
  * @LastEditors: LIU KANG
- * @LastEditTime: 2022-04-19 10:51:01
+ * @LastEditTime: 2022-04-20 22:55:45
  * @FilePath: \PyTorchBase\torchCommon.md
  * @Description: liukang
  * 
  * Copyright (c) 2022 by 用户/公司名, All Rights Reserved. 
 -->
 #pytorch基本操作
+参考知乎链接：https://zhuanlan.zhihu.com/p/104019160
 官网链接：https://pytorch.org/docs/stable/index.html
 ##基本配置
 1.导入包和版本查询
@@ -64,4 +65,11 @@ tensor = tensor.long()
 ndarray = tensor.cpu().numpy()
 tensor = torch.from_numpy(ndarry).float()
 tensor = torch.from_numpy(ndarry.copy()).float()
+```
+4.torch.Tensor与PIL.Image转换
+```
+#pytorch 中的张量默认采用n,c,h,w顺序存储，并且数据范围0-1
+#torch.Tensor->PIL
+tensor = torch.from_numpy(np.asarray(PIL.Image.open(path))).permute(2,0,1).float() / 255
+tensor = torchvision.transforms.functional.to_tensor(PIL.Image.open(path)) # Equivalently way
 ```
